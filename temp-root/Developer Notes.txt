@@ -1,0 +1,126 @@
+Mastercard Payment Gateway Services - Mobile Template Developer Notes
+========================================
+
+These developer notes are intended to accompany the example mobile templates which are provided as part of the Mastercard Payment Gateway Services HPS service. They provide an outline of what is provided, and details of any
+special form fields, values, or required elements.
+
+HTML structure
+--------------
+
+We have provided sample templates for a number of different mobile device types: Android, iPhone and
+iPad. There is also a "generic" template which can be used for other devices.
+
+The templates are provided as an example, and a starting point for you to style your own branded
+pages for use on the Mastercard Payment Gateway Services HPS service.
+
+We've used HTML elements, classes and id's which are named to best illustrate what they do. By
+looking at the templates, you can determine the purpose of each element by it's name, or the 'class'
+or 'id' attribute which has been assigned to it.
+
+In summary though, the main elements of each template are:
+
+Element:        <header>
+Description:    This is the page header which contains any navigation elements. This is also where
+                you can place your company logo.
+
+Element:        <div id="total_enclosure">
+Description:    Contains details of the transaction amount
+
+Element:        <ul id="payment_methods">
+Description:    Currently contains the form for standard card transactions. This element has been
+                designed so that it is possible to easily add alternative payment methods in the
+                future, should they become available
+
+Element:        <footer>
+Description:    Contains any branding or disclaimer text.
+
+Note that some templates feature extra <meta> tags in the <head>, which are used to maintain
+proper device zooming and sizing when viewed with a mobile browser. We recommend that you retain
+these elements for the best compatibility, and familiarise yourself with their purpose.
+
+CSS structure
+-------------
+
+Like the HTML, our sample CSS (included in the <head> of each template) has been structured to use
+logical and appropriate elements, classes and id's.
+
+The style for each mobile template has been tailored to match the target device type. For example:
+the iPhone and iPad templates have been designed to mirror standard iOS design styles; the
+Android template is designed to use common Android styles.
+
+You can use the template CSS as-is, or as a starting point for creating your own branded templates.
+For example, by changing the colour values in the CSS, you can easily change the templates to match
+the colours of your company branding; or change the font styles to match those used on your website.
+
+Note that to allow for standardised styling of the templates, we have included normalize.css styling
+in each template. This sets up basic CSS styling in a standardised way across all browsers, and is
+a tried and tested way of maintaining consistency across different mobile and browser platforms. We
+strongly recommend that you retain the normalize.css to make sure your templates are compatible with
+the widest range of devices.
+
+The transaction form 
+--------------------
+
+In order to submit transactions, the form element in your template should take the following form:
+
+    <form method="post" action="?">
+
+This will provide a reliable way for the form to be submitted to the correct location for
+processing.
+
+Form field names
+----------------
+
+The following form fields are required in your template, in order for transactions to be processed.
+These fields will be verified upon submission, and if any errors occur, the template will appear
+again, with the appropriate errors populated in the __ERROR_MESSAGE__ value (see "Special placeholder
+values" below).
+
+Name:           action
+Value:          confirm
+Description:    This is a hidden field which is used to confirm the transaction
+Example:        <input type="hidden" value="confirm" name="action" />
+
+Name:           HPS_SessionID
+Description:    This is a hidden field which is used to pass the hosted session ID. You should
+                populate the field using the special value __SESSION_ID__
+Example:        <input type="hidden" value="__SESSION_ID__" name="HPS_SessionID" />
+
+Name:           card_number
+Description:    The credit card number, and should preferably be a numeric field type. It is
+                expected to be a maximum of 16 characters in length
+Example:        <input id="card_number" name="card_number" type="tel" required value="" />
+
+Name:           exp_month
+Description:    The card expiry month. It is expected to be a two-digit numeric value
+Example:        <input id="exp_month" class="date" name="exp_month" type="tel" size="2" maxlength="2" min="1" max="99" placeholder="MM" required value="" />
+
+Name:           exp_year
+Description:    The card expiry year. It is expected to a four-digit numeric value
+Example:        <input id="exp_year" class="date" name="exp_year" type="tel" size="4" maxlength="4" min="1" max="9999" placeholder="YYYY" required value="" />
+
+Name:           cv2_number
+Description:    The card's CV2 security number. It is expected to be a three-digit numeric value
+Example:        <input id="cv2_number" name="cv2_number" type="tel" size="4" maxlength="4" min="1" max="9999" required value="" />
+
+Special placeholder values
+--------------------------
+
+The following are special placeholder values, which will be re-populated with relevant values when
+the page gets served. You should use these values to have content placed in the appropriate place
+in your template.
+
+Name:           __CURRENCY__
+Description:    Displays the currency symbol for the chosen currency
+Examples:       £, $, €
+
+Name:           __AMOUNT__
+Description:    Displays the transaction amount
+Examples:       0.99, 101.15, 1,135.01
+
+Name:           __SESSION_ID__
+Description:    Displays the current hosted pages service session ID. Generally used to populate the
+                HPS_SessionID form field.
+
+Name:           __ERROR_MESSAGE__
+Description:    If an error occurs during verification of the form fields, this displays the relevant error message(s).

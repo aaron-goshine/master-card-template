@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html class="no-js">
+	<head>
+		<title>Mastercard | Payment Gateway Services</title>
+		<style>
+
+			/*! normalize.css v2.1.2 | MIT License | git.io/normalize */
+			article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block;}
+			audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}
+			audio:not([controls]){display:none;height:0;}
+			[hidden]{display:none;}
+			html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+			html,button,input,select,textarea{font-family:sans-serif;}
+			body{margin:0;}
+			a:focus{outline:thin dotted;}
+			a:active,a:hover{outline:0;}
+			h1{font-size:2em;margin:0.67em 0;}
+			h2{font-size:1.5em;margin:0.83em 0;}
+			h3{font-size:1.17em;margin:1em 0;}
+			h4{font-size:1em;margin:1.33em 0;}
+			h5{font-size:0.83em;margin:1.67em 0;}
+			h6{font-size:0.67em;margin:2.33em 0;}
+			abbr[title]{border-bottom:1px dotted;}
+			b,strong{font-weight:bold;}
+			blockquote{margin:1em 40px;}
+			dfn{font-style:italic;}
+			hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0;}
+			mark{background:#ff0;color:#000;}
+			p,pre{margin:1em 0;}
+			code,kbd,pre,samp{font-family:monospace, serif;_font-family:'courier new',monospace;font-size:1em;}
+			pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word;}
+			q{quotes:none;}
+			q:before,q:after{content:'';content:none;}
+			small{font-size:80%;}
+			sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}
+			sup{top:-0.5em;}
+			sub{bottom:-0.25em;}
+			dl,menu,ol,ul{margin:1em 0;}
+			dd{margin:0 0 0 40px;}
+			menu,ol,ul{padding:0 0 0 40px;}
+			nav ul,nav ol{list-style:none;list-style-image:none;}
+			img{border:0;-ms-interpolation-mode:bicubic;}
+			svg:not(:root){overflow:hidden;}
+			figure{margin:0;}
+			form{margin:0;}
+			fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em;}
+			legend{border:0;padding:0;white-space:normal;*margin-left:-7px;}
+			button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle;}
+			button,input{line-height:normal;}
+			button,select{text-transform:none;}
+			button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;*overflow:visible;}
+			button[disabled],html input[disabled]{cursor:default;}
+			input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;*height:13px;*width:13px;}
+			input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}
+			input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}
+			button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+			textarea{overflow:auto;vertical-align:top;}
+			table{border-collapse:collapse;border-spacing:0;}
+
+			/*! Mastercard example template | Generic */
+			body{background-color:#2a2f33;background-image:url(images/hatching-dark.png);color:#ffffff;}
+			body,input,button{font-family:Helvetica,Arial,"sans serif";}
+			body{width:320px;margin:20px auto;}
+			ol{padding:0;margin:0;}
+			li{list-style:none;}
+			a{text-decoration:none;}
+			header{zoom:1;padding:9px;border-top:1px solid;border-bottom:1px solid;border-color:#000000;background-color:#000000;line-height:1;overflow:auto;}header a{float:left;font-size:10px;font-weight:bold;text-decoration:none;color:#ffffff;background-color:#e72d2e;padding:10px;margin-right:10px;}
+			header h1{float:left;margin:0;font-size:18px;line-height:30px;}header h1 img{vertical-align:middle;}
+			#total{zoom:1;margin:10px;background-color:#1e2225;border:5px solid;border-color:#828282;color:#aeecfe;font-size:28px;line-height:1;text-transform:uppercase;overflow:auto;padding:10px;}#total dt{float:left;}
+			#total dd{float:right;font-weight:bold;margin:0;}
+			#total .currency-symbol{font-size:66%;}
+			h2{font-size:12px;text-transform:uppercase;color:#d3e9ef;margin:20px 20px 10px;}
+			h3{color:#d3e9ef;}
+			input{color:#ffffff;background-color:#828282;border:1px solid;border-color:#000000;}
+			button{color:#ffffff;background-color:#00c800;border:3px solid;border-color:#828282;}
+			ul#payment_methods{padding:0;}
+			.method{margin:15px;border:1px solid;border-color:#131417;background-color:#505660;}.method.outbound span{text-indent:-9999px;display:inline-block;width:100%;line-height:23px;}
+			.method.outbound#paypass span{background:transparent url(images/paypass.png) no-repeat 0 0;}
+			.method.outbound#paypal span{background:transparent url(images/paypal.png) no-repeat 0 0;}
+			.method.outbound#masterpass span{background:transparent url(images/masterpass.png) no-repeat 0 0;}
+			.method.outbound a{display:block;padding:8px 10px;background:transparent url(./.images/outbound.png) no-repeat right -92px;}.method.outbound a:hover{background-position:right 9px;}
+			.method.outbound a img{vertical-align:middle;}
+			form{padding:6px 10px;}form h3{margin:0;font-size:14px;line-height:24px;text-transform:uppercase;border-bottom:1px solid;border-color:#737880;overflow:auto;zoom:1;}
+			form ol li{overflow:auto;margin:15px 0;text-align:right;}form ol li label{font-size:15px;line-height:28px;float:left;}
+			form ol li input{font-size:14px;line-height:1;padding:6px;}form ol li input#card_number{width:140px;}
+			form ol li input.date{width:24px;}
+			form ol li input#exp_year{width:40px;}
+			form ol li input#cv2_number{width:38px;}
+			form ol li.confirm{text-align:center;}
+			form div.error{text-align:center;background:#5a646e;padding:.25em;border:1px solid #737880;color:#ff3232;font-size:13px;margin-bottom:.3em;}
+			form div#error-message-container{display:none;}
+			form button{vertical-align:top;font-size:15px;line-height:30px;padding:0 15px;margin:0;font-weight:bold;}
+			footer{text-align:center;font-size:9px;line-height:24px;}
+			footer span{display:inline-block;text-indent:-9999px;margin-left:3px;background-repeat:no-repeat;background-position:left;background-image:url(images/mastercard@x2.png);width:74px; height:40px;}
+			footer p{line-height:37px;}
+			/* image retina display */
+            @media screen and (-webkit-min-device-pixel-ratio: 1.5),
+            screen and (min--moz-device-pixel-ratio: 1.5),
+			screen and (min-resolution: 144dpi){
+			footer span {background: url(images/mastercard@2x.png);background-size:100%;background-repeat: no-repeat; height:44px;}
+			footer p{line-height:40px;}
+			}
+			footer small{font-size:7px;text-transform:uppercase;}
+			body.light{background-color:#fff;background-image:url(images/hatching-light.png);color:#838486;}body.light header{background-color:#fff;border-color:#b9b9b9;}
+			body.light #total{background-color:#f5f5f5;border-color:#d2d3d3;color:#e2a53c;}
+			body.light h2{color:#838486;}
+			body.light h3{color:#838486;}
+			body.light li.method{background-color:#e9eaeb;border-color:#cdcdcd;}
+			body.light input{border-color:#838486;background-color:#fff;color:#838486;}
+			body.light button{border-color:#d5d5d5;}
+			body.light footer span{background-image:url(images/mastercard-alt.png);}
+
+		</style>
+
+		<script type="text/javascript">
+		window.onload = function(){
+		  var errorField = document.getElementById("error-message-container");
+		  if (errorField && errorField.innerText) {
+ 		   errorField.style.display = 'block';
+		  }
+		};
+		</script>
+
+	</head>
+
+	<body>
+
+		<header>
+			<a id="cancel" href="../">Cancel</a>
+			<h1>
+				<!-- Logo Placeholder -->
+				<img id="logo" src="images/logo-placeholder.gif" alt="Place your logo here" />
+			</h1>
+		</header>
+
+		<!-- Displays the total purchase amount -->
+		<div id="total_enclosure">
+			<dl id="total">
+				<dt>Total</dt>
+				<dd><span class="currency-symbol">__CURRENCY__</span>__AMOUNT__</dd>
+			</dl>
+		</div>
+
+		<!-- Payment method options -->
+		<ul id="payment_methods">
+
+			<!-- Payment method: Credit / Deibt Card -->
+			<li id="card" class="method">
+				<form method="post" action="?" autocomplete="off">
+					<input type="hidden" value="confirm" name="action"/>
+					<input type="hidden" value="__SESSION_ID__" name="HPS_SessionID">
+					<div class="error" id="error-message-container">__ERROR_MESSAGE__</div>
+					<h3>
+						Credit / Debit card
+					</h3>
+					<ol>
+						<li>
+							<label for="card_number">Card Number</label>
+							<input id="card_number" name="card_number" type="tel" required value="" />
+						</li>
+						<li>
+							<label for="exp_month">Expiry Date</label>
+							<input id="exp_month" class="date" name="exp_month" type="tel" size="2" maxlength="2" min="1" max="99" placeholder="MM" required value="" /> /
+							<input id="exp_year" class="date" name="exp_year" type="tel" size="4" maxlength="4" min="1" max="9999" placeholder="YYYY" required value="" />
+						</li>
+						<li>
+							<label for="cv2_number">Card Security Code</label>
+							<input id="cv2_number" name="cv2_number" type="tel" size="4" maxlength="4" min="1" max="9999" required value="" />
+						</li>
+						<li class="confirm">
+							<button>Confirm</button>
+						</li>
+					</ol>
+				</form>
+			</li>
+
+		</ul>
+
+		<footer>
+			<p>
+				Powered by <span>&nbsp;</span> <small>A MasterCard company</small>
+			</p>
+		</footer>
+
+	</body>
+
+</html>
