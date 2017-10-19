@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>Mastercard | Payment Gateway Services</title>
+    <style>
+      html {
+        font-size: 100%;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        font-family: Helvetica, Arial, "sans serif";
+      }
+
+      body {
+        margin: 0;
+      }
+      ol,
+      ul, 
+      fieldset {
+        margin: 0;
+        padding: 0;
+        border: none;
+      }
+
+      button,
+      input {
+        font-size: 100%;
+        margin: 0;
+        vertical-align: baseline;
+        *vertical-align: middle;
+      }
+
+      li {
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      header {
+      width: 70%; 
+      margin: 0 auto 30px;
+      }
+
+      button {
+        color: #ffffff;
+        font-weight: bold;
+      }
+
+      form {
+        width: calc(100% - 40px);
+        margin: 0 auto;
+      }
+
+      form h3 {
+        font-size: 30px;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 30px
+      }
+
+      form li {
+        margin-bottom: 1em;
+        padding-bottom: 1em;
+      }
+
+      form label {
+        display: block;
+        color: #909090;
+      }
+
+      form input {
+        height: 30px; 
+        font-size: 16px;
+        line-height: 30px;
+        border: none;
+        outline: none;
+        padding: 0;
+      }
+
+
+      #exp_year {
+        width: 3em;
+      }
+
+      #exp_month {
+        width: 2em;
+      }
+
+      form ol li.confirm {
+        text-align: center;
+      }
+
+      form div.error {
+        text-align: center;
+        background: #efefef;
+        padding: 1em;
+        color: #ff3232;
+        margin-bottom: 1em;
+      }
+
+      form div#error-message-container {
+        display: none;
+      }
+
+      form button {
+        height: 50px;
+        background-color: #F06C00;
+        vertical-align: top;
+        font-weight: bold;
+        width: 100%;
+        margin: 0 auto;
+        border: none;
+        font-size: 18px;
+      }
+
+      form ol li fieldset{
+        border-bottom: 2px solid #efefef;
+        padding-bottom: 8px;
+      }
+
+
+      .fieldset-col fieldset {
+        display: inline-block;
+        width: calc((100%  - 40px) / 2 );
+
+      }
+
+      .fieldset-col fieldset input{
+        font-size: 16px;
+
+      }
+      .expire {
+        margin-right: 34px;
+      }
+
+      .expire span {
+        font-size: 16px;
+      }
+
+      /* image retina display */
+
+      @media screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (min--moz-device-pixel-ratio: 2) {
+      }
+    </style>
+    <script type="text/javascript">
+      window.onload = function(){ 
+        var errorField = document.getElementById("error-message-container");
+        if (errorField && errorField.innerText && errorField.innerText != '__ERROR_MESSAGE__' ) {
+          errorField.style.display = 'block';
+        }
+      };
+    </script>
+  </head>
+
+  <body>
+    <!-- Payment method options -->
+    <ul id="payment_methods">
+      <!-- Payment method: Credit / Deibt Card -->
+      <li id="card" class="method">
+        <form method="post" action="?" autocomplete="off">
+          <input type="hidden" value="confirm" name="action"/>
+          <input type="hidden" value="__SESSION_ID__" name="HPS_SessionID">
+          <div class="error" id="error-message-container" styles="display: none; ">__ERROR_MESSAGE__</div>
+          <header>
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 239.9 33.7" enable-background="new 0 0 239.9 33.7" xml:space="preserve">
+              <g>
+                <g>
+                  <path fill="#F06C00" d="M21.1,24.5H16l-1.1-3.2H9l-1,3.2H3.3l4.6-14.3H6.2V6.8h7.1c1.1,0,1.5,0.3,1.9,1.2L21.1,24.5z M13.8,18
+                  l-1.4-4.3c-0.3-1-0.6-2-0.7-2.7h-0.1c0,0.6-0.3,1.6-0.6,2.7L9.9,18H13.8z"/>
+                  <path fill="#F06C00" d="M34.1,5.4c0.8,0,1.1,0.3,1.1,1V21c0,0.5,0.2,0.8,0.6,0.8c0.4,0,0.9-0.2,1.1-0.4l-0.2,2.5
+                  c-0.8,0.5-1.9,0.9-3.1,0.9c-1.2,0-2.3-0.5-2.8-1.6c-0.8,0.9-2.2,1.6-3.8,1.6c-3.3,0-5.5-2.3-5.5-6.3c0-5,3.4-7.8,7.6-7.8
+                  c0.4,0,0.8,0,1.1,0.1V8.7h-1.7V5.4H34.1z M30.5,13.6c-0.2,0-0.4-0.1-0.8-0.1c-2.1,0-3.2,1.9-3.2,4.7c0,1.8,0.6,3.2,2.2,3.2
+                  c0.6,0,1.1-0.3,1.4-0.6c0.3-0.4,0.4-1,0.4-1.5V13.6z"/>
+                  <path fill="#F06C00" d="M50,5.4c0.8,0,1.1,0.3,1.1,1V21c0,0.5,0.2,0.8,0.6,0.8c0.4,0,0.9-0.2,1.1-0.4l-0.2,2.5
+                  c-0.8,0.5-1.9,0.9-3.1,0.9c-1.2,0-2.3-0.5-2.8-1.6c-0.8,0.9-2.2,1.6-3.8,1.6c-3.3,0-5.5-2.3-5.5-6.3c0-5,3.4-7.8,7.6-7.8
+                  c0.4,0,0.8,0,1.1,0.1V8.7h-1.7V5.4H50z M46.4,13.6c-0.2,0-0.4-0.1-0.8-0.1c-2.1,0-3.2,1.9-3.2,4.7c0,1.8,0.6,3.2,2.2,3.2
+                  c0.6,0,1.1-0.3,1.4-0.6c0.3-0.4,0.4-1,0.4-1.5V13.6z"/>
+                  <path fill="#F06C00" d="M63.9,11c0.8,0,1.1,0.2,1.2,1l0.1,0.9c1-1.3,2.5-2.2,4.4-2.2c3.5,0,5.4,2.3,5.4,6.9c0,2.4-0.6,4.5-2.2,5.8
+                  c-1.2,1-2.8,1.4-4.7,1.4c-0.7,0-1.5-0.1-1.9-0.1v5.5h-4.7V14.2h-1.7V11H63.9z M68,14.2c-0.6,0-1.2,0.3-1.5,0.8
+                  c-0.3,0.5-0.4,1.1-0.4,1.9v4.9c0.4,0.1,0.9,0.1,1.4,0.1c2.2,0,2.6-1.7,2.6-4.1C70.2,15.7,69.7,14.2,68,14.2z"/>
+                  <path fill="#F06C00" d="M90.7,23.9c-0.7,0.5-1.9,0.8-3.1,0.8c-1.3,0-2.3-0.5-2.7-1.5c-0.8,1-2.2,1.5-3.8,1.5
+                  c-2.9,0-4.8-1.6-4.8-4.5c0-3,2.2-4.5,5.2-4.5c0.9,0,1.9,0.2,2.7,0.5v-0.4c0-0.7-0.1-1.3-0.4-1.7c-0.4-0.4-1.1-0.6-2-0.6
+                  c-1.4,0-3.2,0.5-4.3,1.1v-3.1c1.3-0.5,3.2-0.9,5-0.9c2.3,0,3.9,0.4,5.1,1.4c1,0.8,1.3,2,1.3,3.6V21c0,0.5,0.2,0.8,0.6,0.8
+                  c0.4,0,0.9-0.2,1.1-0.4L90.7,23.9z M84.4,18.5c-0.4-0.1-0.9-0.3-1.5-0.3c-1.2,0-1.7,0.8-1.7,1.9c0,1.2,0.6,1.8,1.7,1.8
+                  c0.5,0,0.9-0.2,1.1-0.4c0.3-0.3,0.4-0.7,0.4-1.2V18.5z"/>
+                  <path fill="#F06C00" d="M105.4,23.8c0,2.3-0.4,3.8-1.3,4.8c-1.1,1.2-2.7,1.8-5.1,1.8c-2.2,0-4.2-0.5-5.9-1.4l0.3-3.3
+                  c1.3,0.8,3.1,1.4,4.6,1.4c2,0,2.7-0.9,2.7-2.7v-1c-0.8,0.8-2.2,1.3-3.5,1.3c-1.8,0-3.3-0.6-4.1-1.9c-0.4-0.7-0.6-1.5-0.6-3v-9h4.7
+                  v8.2c0,0.6,0,1,0.3,1.4c0.2,0.4,0.7,0.7,1.4,0.7c0.7,0,1.2-0.3,1.5-0.8c0.3-0.4,0.4-1.1,0.4-1.7V11h4.7V23.8z"/>
+                  <path fill="#F06C00" d="M111,11c0.8,0,1.1,0.2,1.2,1l0.1,0.9c1-1.4,2.6-2.2,4.5-2.2c1.7,0,3.2,0.7,3.9,1.9c1-1.1,2.5-1.9,4.1-1.9
+                  c1.8,0,3.3,0.7,4,2c0.4,0.7,0.6,1.4,0.6,2.9v9h-4.7v-8.2c0-0.6,0-1-0.3-1.4c-0.2-0.4-0.7-0.7-1.3-0.7c-0.7,0-1.2,0.3-1.5,0.8
+                  c-0.3,0.4-0.3,1.1-0.3,1.7v7.8h-4.7v-8.2c0-0.6,0-1-0.3-1.4c-0.2-0.4-0.7-0.7-1.3-0.7c-0.7,0-1.2,0.3-1.5,0.8
+                  c-0.3,0.4-0.3,1.1-0.3,1.7v7.8h-4.7V14.2h-1.7V11H111z"/>
+                  <path fill="#F06C00" d="M144.2,18.7c-0.3,0.4-0.8,0.4-1.4,0.4h-6.6c0.3,1.7,1.4,2.5,3.2,2.5c1.6,0,3.4-0.6,4.6-1.4l-0.2,3
+                  c-1.5,1.1-3.6,1.6-5.5,1.6c-4.5,0-7.1-2.7-7.1-7c0-4.6,2.9-7.1,6.8-7.1c3.9,0,6.6,2.3,6.6,6.1C144.7,17.6,144.6,18.3,144.2,18.7z
+                  M138.1,13.8c-1.2,0-2,1-2,3.1h3.7c0.2,0,0.3-0.1,0.3-0.4C140.2,15.1,139.6,13.8,138.1,13.8z"/>
+                  <path fill="#F06C00" d="M151.1,12.9c1-1.4,2.7-2.2,4.6-2.2c1.8,0,3.3,0.6,4.1,1.9c0.4,0.7,0.6,1.5,0.6,3v9h-4.7v-8.2
+                  c0-0.6,0-1-0.3-1.4c-0.2-0.4-0.7-0.7-1.4-0.7c-0.7,0-1.2,0.3-1.5,0.8c-0.3,0.4-0.4,1.1-0.4,1.7v7.8h-4.7V14.2h-1.7V11h4
+                  c0.8,0,1.1,0.2,1.2,1L151.1,12.9z"/>
+                  <path fill="#F06C00" d="M172.4,23.7c-0.9,0.6-2.7,1.1-4.1,1.1c-1.3,0-2.5-0.3-3.2-1c-0.8-0.8-1.1-1.9-1.1-4v-5.6h-2.2v-2.7L164,11
+                  V7.7l4.7-1.1V11h3.1v3.3h-3.1v5.6c0,1,0.3,1.6,1.2,1.6c0.8,0,1.8-0.3,2.6-0.8L172.4,23.7z"/>
+                  <path fill="#F06C00" d="M191.5,14.9c-1-0.6-2.2-1.1-3.4-1.1c-1.9,0-3.3,1.2-3.3,3.8c0,2.6,1.1,4,3.4,4c1.3,0,2.6-0.5,3.9-1.3
+                  l-0.2,3.2c-1.2,0.8-2.8,1.3-4.8,1.3c-4.3,0-7.1-2.3-7.1-7c0-4.4,2.8-7.1,7.4-7.1c1.5,0,3.2,0.4,4.3,0.9L191.5,14.9z"/>
+                  <path fill="#F06C00" d="M207.8,23.9c-0.7,0.5-1.9,0.8-3.1,0.8c-1.3,0-2.3-0.5-2.7-1.5c-0.8,1-2.2,1.5-3.8,1.5
+                  c-2.9,0-4.8-1.6-4.8-4.5c0-3,2.2-4.5,5.2-4.5c0.9,0,1.9,0.2,2.7,0.5v-0.4c0-0.7-0.1-1.3-0.4-1.7c-0.4-0.4-1.1-0.6-2-0.6
+                  c-1.4,0-3.2,0.5-4.3,1.1v-3.1c1.3-0.5,3.2-0.9,5-0.9c2.3,0,3.9,0.4,5.1,1.4c1,0.8,1.3,2,1.3,3.6V21c0,0.5,0.2,0.8,0.6,0.8
+                  c0.4,0,0.9-0.2,1.1-0.4L207.8,23.9z M201.4,18.5c-0.4-0.1-0.9-0.3-1.5-0.3c-1.2,0-1.7,0.8-1.7,1.9c0,1.2,0.6,1.8,1.7,1.8
+                  c0.5,0,0.9-0.2,1.1-0.4c0.3-0.3,0.4-0.7,0.4-1.2V18.5z"/>
+                  <path fill="#F06C00" d="M212.6,11c0.8,0,1.1,0.2,1.2,1l0.1,0.9c0.6-1.3,2-2.2,3.6-2.2c0.4,0,0.8,0,1.1,0.1v3.6
+                  c-0.4-0.1-0.9-0.1-1.3-0.1c-1.6,0-2.2,0.8-2.2,2.6v7.6h-4.7V14.2h-1.7V11H212.6z"/>
+                  <path fill="#F06C00" d="M231.2,5.4c0.8,0,1.1,0.3,1.1,1V21c0,0.5,0.2,0.8,0.6,0.8c0.4,0,0.9-0.2,1.1-0.4l-0.2,2.5
+                  c-0.8,0.5-1.9,0.9-3.1,0.9c-1.2,0-2.3-0.5-2.8-1.6c-0.8,0.9-2.2,1.6-3.8,1.6c-3.3,0-5.5-2.3-5.5-6.3c0-5,3.4-7.8,7.6-7.8
+                  c0.4,0,0.8,0,1.1,0.1V8.7H226V5.4H231.2z M227.6,13.6c-0.2,0-0.4-0.1-0.8-0.1c-2.1,0-3.2,1.9-3.2,4.7c0,1.8,0.6,3.2,2.2,3.2
+                  c0.6,0,1.1-0.3,1.4-0.6c0.3-0.4,0.4-1,0.4-1.5V13.6z"/>
+                </g>
+              </g>
+            </svg>
+          </header>
+          <!-- -->
+          <ol>
+            <li>
+              <fieldset>
+                <label for="card_number">Card Number</label>
+                <input id="card_number" name="card_number" type="tel" required value="" placeholder="xxxx xxxx xxxx xxxx" />
+              </fieldset>
+            </li>
+            <li class="fieldset-col">
+              <fieldset class="expire">
+                <label for="exp_month">Expiry Date</label>
+                <input id="exp_month" class="date" name="exp_month"
+                type="tel" size="2" maxlength="2" min="1" max="99"
+                placeholder="MM" required value="" /><span>/</span><input
+                id="exp_year" class="date"
+                name="exp_year" type="tel" size="4"
+                maxlength="4" min="1" max="9999"
+                placeholder="YYYY" required value="" />
+              </fieldset>
+              <fieldset class="cvv">
+                <label for="cv2_number">CVV</label>
+                <input id="cv2_number" name="cv2_number" type="tel" size="4" maxlength="4" min="1" max="9999" required value="" placeholder="123" />
+              </fieldset>
+            </li>
+            <li class="confirm">
+              <button>Next</button>
+            </li>
+          </ol>
+        </form>
+      </li>
+    </ul>
+  </body>
+</html>
